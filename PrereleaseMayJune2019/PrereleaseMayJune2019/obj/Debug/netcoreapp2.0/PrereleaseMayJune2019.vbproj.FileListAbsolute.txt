@@ -1,0 +1,11 @@
+C:\Users\ABCIS\Documents\GitHub\PreReleaseMayJune2019\PrereleaseMayJune2019\PrereleaseMayJune2019\bin\Debug\netcoreapp2.0\PrereleaseMayJune2019.deps.json
+C:\Users\ABCIS\Documents\GitHub\PreReleaseMayJune2019\PrereleaseMayJune2019\PrereleaseMayJune2019\bin\Debug\netcoreapp2.0\PrereleaseMayJune2019.runtimeconfig.json
+C:\Users\ABCIS\Documents\GitHub\PreReleaseMayJune2019\PrereleaseMayJune2019\PrereleaseMayJune2019\bin\Debug\netcoreapp2.0\PrereleaseMayJune2019.runtimeconfig.dev.json
+C:\Users\ABCIS\Documents\GitHub\PreReleaseMayJune2019\PrereleaseMayJune2019\PrereleaseMayJune2019\bin\Debug\netcoreapp2.0\PrereleaseMayJune2019.dll
+C:\Users\ABCIS\Documents\GitHub\PreReleaseMayJune2019\PrereleaseMayJune2019\PrereleaseMayJune2019\bin\Debug\netcoreapp2.0\PrereleaseMayJune2019.pdb
+C:\Users\ABCIS\Documents\GitHub\PreReleaseMayJune2019\PrereleaseMayJune2019\PrereleaseMayJune2019\obj\Debug\netcoreapp2.0\PrereleaseMayJune2019.vbprojResolveAssemblyReference.cache
+C:\Users\ABCIS\Documents\GitHub\PreReleaseMayJune2019\PrereleaseMayJune2019\PrereleaseMayJune2019\obj\Debug\netcoreapp2.0\PrereleaseMayJune2019.vbproj.CoreCompileInputs.cache
+C:\Users\ABCIS\Documents\GitHub\PreReleaseMayJune2019\PrereleaseMayJune2019\PrereleaseMayJune2019\obj\Debug\netcoreapp2.0\PrereleaseMayJune2019.AssemblyInfoInputs.cache
+C:\Users\ABCIS\Documents\GitHub\PreReleaseMayJune2019\PrereleaseMayJune2019\PrereleaseMayJune2019\obj\Debug\netcoreapp2.0\PrereleaseMayJune2019.AssemblyInfo.vb
+C:\Users\ABCIS\Documents\GitHub\PreReleaseMayJune2019\PrereleaseMayJune2019\PrereleaseMayJune2019\obj\Debug\netcoreapp2.0\PrereleaseMayJune2019.dll
+C:\Users\ABCIS\Documents\GitHub\PreReleaseMayJune2019\PrereleaseMayJune2019\PrereleaseMayJune2019\obj\Debug\netcoreapp2.0\PrereleaseMayJune2019.pdb
