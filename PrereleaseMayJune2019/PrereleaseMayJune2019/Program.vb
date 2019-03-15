@@ -8,6 +8,7 @@ Module Program
         'Dim itemReserve(9) As Decimal
         Dim itemHighestBid() As Decimal = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
         Dim itemBidCount() As Integer = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+        Dim itemExceedsReservePrice() As Boolean = {False, False, False, False, False, False, False, False, False, False}
         Dim itemBuyerIDOfHighestBid(9) As String
         Dim userInput As String
         Dim currentItem As Integer
@@ -45,12 +46,7 @@ Module Program
             'Displaying item info
             Console.WriteLine("Name: {0}", itemName(currentItem))
             Console.WriteLine("Description: {0}", itemDesc(currentItem))
-            'Only shows highest bid if there has been a bid on the item.
-            If itemHighestBid(currentItem) = 0 Then
-                Console.WriteLine("Reserve price: ${0}", itemReserve(currentItem))
-            Else
-                Console.WriteLine("Current highest bid: ${0}", itemHighestBid(currentItem))
-            End If
+            Console.WriteLine("Current highest bid: ${0}", itemHighestBid(currentItem))
             Console.WriteLine("Would you like to make a bid for this item? (Type ""y"" or ""n""")
             userInput = Console.ReadLine
             'Setting bids
@@ -66,18 +62,21 @@ Module Program
                     If userInput = "0" Then
                         '0 is cancel bid
                         exitBidLoop = True
-                    ElseIf userInput > itemReserve(currentItem) And userInput > itemHighestBid(currentItem) Then
+                    ElseIf userInput > itemHighestBid(currentItem) Then
                         'If the above statements are true, the bid will be valid, and will be recorded.
                         itemBidCount(currentItem) += 1
                         itemHighestBid(currentItem) = userInput
                         itemBuyerIDOfHighestBid(currentItem) = currentBuyerID
+                        If itemHighestBid(currentItem) > itemReserve(currentItem) Then
+                            itemExceedsReservePrice(currentItem) = True
+                        End If
                         Console.WriteLine("Bid successful!")
                         Console.WriteLine("Bid: ${0}", userInput)
                         Console.WriteLine("BuyerID: {0}", currentBuyerID)
                         exitBidLoop = True
                     Else
                         'Bid unsuccessful will ask for another input
-                        Console.WriteLine("Bid cannot be lower than that of the reserve price or current highest bid.")
+                        Console.WriteLine("Bid cannot be lower than that of the current highest bid.")
                         Console.WriteLine("Please enter a higher price or cancel the bid.")
                     End If
 
@@ -87,7 +86,45 @@ Module Program
                 Console.WriteLine("See you next time!")
             End If
 
+            Console.WriteLine("Would you like to end the auction? (Type ""y"" or ""n""")
+            userInput = Console.ReadLine
+
+            If userInput = "y" Then
+                exitBool = True
+            End If
         Loop Until exitBool
+        'TASK 3
+        Console.WriteLine("The auction as now ended!")
+        Console.WriteLine("Calculating auction summary...")
+        Dim totalItemsSold As Integer = 0
+        Dim totalItemsNotReachedReserve As Integer = 0
+        Dim totalItemsNotBidded As Integer = 0
+        Dim itemTotalFee(9) As Decimal
+        For i = 0 To itemName.Length - 1
+            Console.WriteLine("--------------------------------")
+            Console.WriteLine("Item ID: {0}", i + 1)
+            Console.WriteLine("Name: {0}", itemName(i))
+            If itemExceedsReservePrice(i) Then
+                Console.WriteLine("Status: SOLD")
+                itemTotalFee(i) = itemHighestBid(i) * 1.1
+                Console.WriteLine("Total Fee: {0}", itemTotalFee(i))
+                totalItemsSold += 1
+            ElseIf itemBidCount(i) > 0 Then
+                Console.WriteLine("Status: NOT SOLD")
+                Console.WriteLine("Reason: Has not reached reserve price")
+                Console.WriteLine("Final Bid: {0}", itemHighestBid(i))
+                totalItemsNotReachedReserve += 1
+            Else
+                Console.WriteLine("Status: NOT SOLD")
+                Console.WriteLine("Reason: No bids received")
+                totalItemsNotBidded += 1
+            End If
+        Next
+        Console.WriteLine("-------------------------")
+        Console.WriteLine("FINAL AUCTION SUMMARY")
+        Console.WriteLine("Items sold: {0}", totalItemsSold)
+        Console.WriteLine("Items not reached reserve price: {0}", totalItemsNotReachedReserve)
+        Console.WriteLine("Items not bidded on: {0}", totalItemsNotBidded)
         Console.ReadLine()
     End Sub
 End Module
