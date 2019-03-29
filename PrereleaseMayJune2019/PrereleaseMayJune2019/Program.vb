@@ -100,6 +100,7 @@ Module Program
         Dim totalItemsNotReachedReserve As Integer = 0
         Dim totalItemsNotBidded As Integer = 0
         Dim itemTotalFee(9) As Decimal
+        Dim feeSum As Decimal = 0
         For i = 0 To itemName.Length - 1
             Console.WriteLine("--------------------------------")
             Console.WriteLine("Item ID: {0}", i + 1)
@@ -109,6 +110,7 @@ Module Program
                 itemTotalFee(i) = itemHighestBid(i) * 1.1
                 Console.WriteLine("Total Fee: {0}", itemTotalFee(i))
                 totalItemsSold += 1
+                feeSum += 0.1 * itemHighestBid(i)
             ElseIf itemBidCount(i) > 0 Then
                 Console.WriteLine("Status: NOT SOLD")
                 Console.WriteLine("Reason: Has not reached reserve price")
@@ -125,6 +127,7 @@ Module Program
         Console.WriteLine("Items sold: {0}", totalItemsSold)
         Console.WriteLine("Items not reached reserve price: {0}", totalItemsNotReachedReserve)
         Console.WriteLine("Items not bidded on: {0}", totalItemsNotBidded)
+        Console.WriteLine("Total Fee: {0}", feeSum)
         Console.ReadLine()
     End Sub
 End Module
